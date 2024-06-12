@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutterbloc/constans/strings.dart';
+import 'package:flutterbloc/data/model/Character.dart';
 
 class CharacterWebServices {
   late Dio dio;
@@ -13,14 +14,19 @@ class CharacterWebServices {
     dio = Dio(options);
   }
 
-  Future<List<dynamic>> getAllCharacter() async {
+  Future<List<dynamic>> getAllCharacters() async {
     try {
-      Response response = await dio.get('characters');
-      print(response.data.toString());
-      return response.data;
+      Response response = await dio.get('character');
+  List<dynamic> results = response.data['results'];
+
+      print('result is$results.length');
+
+      return results;
     } catch (e) {
       print(e);
       return [];
     }
   }
 }
+
+
