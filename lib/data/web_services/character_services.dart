@@ -19,7 +19,7 @@ class CharacterWebServices {
       Response response = await dio.get('character');
   List<dynamic> results = response.data['results'];
 
-      print('result is$results.length');
+   //   print('result is$results.length');
 
       return results;
     } catch (e) {

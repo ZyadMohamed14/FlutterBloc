@@ -58,7 +58,17 @@ class Location {
     );
   }
 }
+class Episode {
+  final String imageUrl;
 
+  Episode({required this.imageUrl});
+
+  factory Episode.fromJson(Map<String, dynamic> json) {
+    return Episode(
+      imageUrl: json['image'], // Adjust the key based on the actual JSON structure
+    );
+  }
+}
 
 /// id : 1
 /// name : "Rick Sanchez"
